@@ -33,7 +33,6 @@ def FF(x):
     :return: Самое частое имя в списке x
     '''
 
-    global name_list
     j = 0
     i = 0
     kol = 1
@@ -70,8 +69,61 @@ def FF(x):
         ii+= 1
     return print ( 'Наиболее часто встречающееся имя в списке:  ', name_often)
 
+def FFF(x):
+    '''
+    :param x: Список имен
+    :return: Самая редкая буква, с которой начинается имя в списке x
+    '''
+    j = 0
+    i = 0
+    kol = 1
+    bukva = []
+    tmp = []
+    bukva_sld = []
+    dict_words = {}
+    dlina = len(x)
+
+    for i in range(len(x)):
+        tmp = list(x[i])
+        bukva.append(tmp[0])
+    print('bukva = ', bukva)
+
+    j = 0
+    i = 0
+    while i < (len(bukva) - 1):
+
+        if (i) < len(bukva) and x[i] == '':
+            i = i + 1
+        else:
+            i = i + 0
+
+        j = i + 1
+        while j < len(bukva):
+            if bukva[i] == bukva[j]:
+                kol += 1
+                bukva[j] = ''
+            j += 1
+        dict_words[bukva[i]] = kol
+        kol = 1
+        i = i + 1
+    i = 0
+    ii = 0
+    list_d = list(dict_words.items())
+    print(list_d)
+    list_d.sort(key=lambda i: i[1], reverse=False)
+    for i in list_d:
+        if ii < 1:
+            bukva_sld = i[0]
+        else:
+            break
+        ii += 1
+    print ('Самая редкая буква, с которой начинается имя в списке')
+    return print(bukva_sld)
+
 list_name1 = ['Николай', 'Галина','Евгения','Иван','Михаил', 'Ольга','Александр','Фаина','Татьяна','Светлана','Олег',
               'Анна','Андрей','Сергей','Леонид','Юрий','Палина','Степан','Дмитрий','Оксана']
+
+# Результат функции F(x)
 name_list = []
 
 print()
@@ -86,4 +138,8 @@ F(nn, list_name1)
 print()
 print('Задача 2. ')
 FF(name_list)
+
+print()
+print('Задача 3. ')
+FFF(name_list)
 #print(name_list)
