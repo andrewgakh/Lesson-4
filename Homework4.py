@@ -69,7 +69,6 @@ list_log=['2011-08-01 18:03:34,338 - exampleApp - INFO - Program started',
           '2018-10-12 23:31:01,338 - exampleApp - INFO - Done!']
 
 name_list = [] # Результат функции F(x)
-list_log1=[]
 dict_tm={}
 tmp=[]
 tmp1=[]
@@ -108,7 +107,7 @@ print('Задача 4. ')
 tmp.clear()
 for i in range (len(list_log)):
     tmp.append( list_log[i].split())
-#    print('tmp ', tmp)
+
 
 tmp.sort(key=lambda i: i[0]+' '+i[1], reverse=True)
 print('Cообщения из лог.файла упорядочены по времени : ')
