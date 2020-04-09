@@ -33,47 +33,97 @@ def FF(x):
     :return: Самое частое имя в списке x
     '''
 
-    j = 0
-    i = 0
-    kol = 1
+    # j = 0
+    # i = 0
+    # kol = 1
+    # dict_words = {}
+    # dlina = len(x)
+    print('Наиболее часто встречающееся имя в списке:  ')
+    dict_tmp(x,True)
+
+    # while i < (len(x) - 1):
+    #
+    #     if (i) < len(x) and x[i] == '':
+    #         i = i + 1
+    #     else:
+    #         i = i + 0
+    #
+    #     j = i + 1
+    #     while j < len(x):
+    #         if x[i] == x[j]:
+    #             kol+= 1
+    #             x[j] = ''
+    #         j+= 1
+    #     dict_words[x[i]] = kol
+    #     kol = 1
+    #     i = i + 1
+    # i = 0
+    # ii = 0
+    # # list_d = list(dict_words.items())
+    # # list_d.sort(key=lambda i: i[1], reverse=True)
+    # list_d = list(dict_tm.items())
+    # list_d.sort(key=lambda i: i[1], reverse=True)
+    # print('Список имен отсортирован по возрастанию')
+    # print(list_d)
+    # print()
+    # for i in list_d:
+    #     if ii < 1:
+    #         name_often = i[0]
+    #     else: break
+    #     ii+= 1
+    # return print ( 'Наиболее часто встречающееся имя в списке:  ', name_often)
+    return
+
+
+def dict_tmp(x, y):
+    '''
+    :param x: Входной список
+    :param y: Логический переключатель True/False. Упорядочивает  список по убыванию/возрастанию.
+    :return: Возвращает наиболее/наименее встречающийся элемент списка
+    '''
+    #global dict_tm
+    # j = 0
+    # i = 0
+    # kol = 1
     dict_words = {}
-    dlina = len(x)
+    # dlina = len(x)
+    # Определяем как часто слово встречается в списке, создаем словарь
+    for i in range(len(x)):
+        #dict_words
+        dict_words[x[i]] = x.count(x[i])
 
-    while i < (len(x) - 1):
-
-        if (i) < len(x) and x[i] == '':
-            i = i + 1
-        else:
-            i = i + 0
-
-        j = i + 1
-        while j < len(x):
-            if x[i] == x[j]:
-                kol+= 1
-                x[j] = ''
-            j+= 1
-        dict_words[x[i]] = kol
-        kol = 1
-        i = i + 1
-    i = 0
-    ii = 0
+    # Сортируем словарь согласно логической переменной
     list_d = list(dict_words.items())
-    list_d.sort(key=lambda i: i[1], reverse=True)
-    print('Список имен отсортирован по возрастанию')
     print(list_d)
-    print()
-    for i in list_d:
-        if ii < 1:
-            name_often = i[0]
-        else: break
-        ii+= 1
-    return print ( 'Наиболее часто встречающееся имя в списке:  ', name_often)
+    list_d.sort(key=lambda i: i[1], reverse=y)
+    print(list_d)
+    oft = list(list_d[0])
+
+    # while i < (len(x) - 1):
+    #
+    #     if (i) < len(x) and x[i] == '':
+    #         i = i + 1
+    #     else:
+    #         i = i + 0
+    #
+    #     j = i + 1
+    #     while j < len(x):
+    #         if x[i] == x[j]:
+    #             kol += 1
+    #             x[j] = ''
+    #         j += 1
+    #     dict_words[x[i]] = kol
+    #     kol = 1
+    #     i = i + 1
+    #dict_tm = dict_words
+    return print (oft[0])
 
 def FFF(x):
     '''
     :param x: Список имен
     :return: Самая редкая буква, с которой начинается имя в списке x
     '''
+
     j = 0
     i = 0
     kol = 1
@@ -83,7 +133,7 @@ def FFF(x):
     dict_words = {}
     dlina = len(x)
 
-    for i in range(len(x)):
+    for i in range (len(x)):
         tmp = list(x[i])
         bukva.append(tmp[0])
     print('bukva = ', bukva)
@@ -92,7 +142,7 @@ def FFF(x):
     i = 0
     while i < (len(bukva) - 1):
 
-        if (i) < len(bukva) and x[i] == '':
+        if i < len(bukva) and x[i] == '':
             i = i + 1
         else:
             i = i + 0
@@ -125,6 +175,7 @@ list_name1 = ['Николай', 'Галина','Евгения','Иван','Ми
 
 # Результат функции F(x)
 name_list = []
+dict_tm={}
 
 print()
 print('Задача 1.')
@@ -139,7 +190,7 @@ print()
 print('Задача 2. ')
 FF(name_list)
 
-print()
-print('Задача 3. ')
-FFF(name_list)
-#print(name_list)
+# print()
+# print('Задача 3. ')
+# FFF(name_list)
+# #print(name_list)
